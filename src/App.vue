@@ -45,6 +45,8 @@ export default {
 
   methods: {
     speakLetter({msg}) {
+      var voiceList = this.synth.getVoices()
+      this.voiceSpanish = voiceList.filter(item => item.name === "Jorge")
       this.pronounciation.text = msg.toLowerCase()
       this.pronounciation.voice = this.voiceSpanish[0]
       this.synth.speak(this.pronounciation)
@@ -61,11 +63,8 @@ export default {
         }
 
   },
-  created() {
-    return new Promise((resolve) => {
-      let voiceList = this.synth.getVoices()
-        resolve(this.voiceSpanish = voiceList.filter(item => item.name === "Jorge"))
-    })
+  mounted() {
+    this.speakLetter({msg: ""})
   }
 }
 </script>
@@ -78,3 +77,5 @@ export default {
 <style>
   
 </style>
+
+
