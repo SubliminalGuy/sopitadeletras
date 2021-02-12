@@ -1,28 +1,78 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <modal
+    @speakLetter="speakLetter" ></modal>
+    <div class="letter-container">
+      <LetterShow 
+      @speakLetter="speakLetter" 
+      @showModal="showModal" 
+      v-for="letter in data" 
+      :key="letter.letra" 
+      :msg="letter.letra"
+      :special="letter.special"
+      ></LetterShow>
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Modal from './components/Modal'
+import LetterShow from './components/LetterShow.vue'
+import {mapGetters} from "vuex";
+
+/* Especiales: C, G, H, L, ene. Q, R, V, W */
 
 export default {
   name: 'App',
+  data () {
+    return {
+      data: this.$store.state.alphabet,
+      synth: window.speechSynthesis,
+      voiceSpanish: [],
+      pronounciation: new window.SpeechSynthesisUtterance
+    }
+  },
   components: {
-    HelloWorld
+    LetterShow,
+    Modal
+  },
+
+  computed: {
+    ...mapGetters([
+        'getModal'
+    ])
+  },
+
+  methods: {
+    speakLetter({msg}) {
+      this.pronounciation.text = msg.toLowerCase()
+      this.pronounciation.voice = this.voiceSpanish[0]
+      this.synth.speak(this.pronounciation)
+    },
+
+    showModal ({msg}) {
+      let root = document.documentElement;
+      let yOffset = window.pageYOffset + 200;
+      root.style.setProperty('--y-scroll-offset', yOffset + "px");
+      let letraInfo = this.$store.state.alphabet.filter(item => item.letra == msg)
+      let letraInfoRojo = letraInfo[0].infotextRojo
+      let letraInfoVerde = letraInfo[0].infotextVerde
+      this.$store.dispatch('showModal', {msg, letraInfoRojo, letraInfoVerde})
+        }
+
+  },
+  mounted() {
+      let voiceList = this.synth.getVoices()
+      this.voiceSpanish = voiceList.filter(item => item.name === "Jorge")
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "assets/css/style.css"
+
+</style>
+
+<style>
+  
 </style>

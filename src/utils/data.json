@@ -1,0 +1,116 @@
+{
+    "alphabet": [
+        {   
+            "letra": "A",
+            "special": false
+        },
+        { 
+            "letra": "B",
+            "special": false
+        },
+        { 
+            "letra": "C",
+            "special": true,
+            "infotextRojo": ["ca", "co", "cu"],
+            "infotextVerde": ["ce", "ci"]
+        },
+        { 
+            "letra": "D",
+            "special": false
+        },
+        { 
+            "letra": "E",
+            "special": false
+        },
+        { 
+            "letra": "F",
+            "special": false
+        },
+        { 
+            "letra": "G",
+            "special": false
+        },
+        { 
+            "letra": "H",
+            "special": true
+        },
+        { 
+            "letra": "I",
+            "special": false
+        },
+        { 
+            "letra": "J",
+            "special": true
+        },
+        { 
+            "letra": "K",
+            "special": false
+        },
+        { 
+            "letra": "L",
+            "special": true
+        },
+        { 
+            "letra": "M",
+            "special": false
+        },
+        { 
+            "letra": "N",
+            "special": false
+        },
+        { 
+            "letra": "Ñ",
+            "special": true
+        },
+        { 
+            "letra": "O",
+            "special": false
+        },
+        { 
+            "letra": "P",
+            "special": false
+        },
+        { 
+            "letra": "Q",
+            "special": false
+        },
+        { 
+            "letra": "R",
+            "special": false
+        },
+        { 
+            "letra": "S",
+            "special": true
+        },
+        { 
+            "letra": "T",
+            "special": false
+        },
+        { 
+            "letra": "U",
+            "special": false
+        },
+        { 
+            "letra": "V",
+            "special": true
+        },
+        { 
+            "letra": "W",
+            "special": true
+        },
+        { 
+            "letra": "X",
+            "special": false
+        },
+        { 
+            "letra": "Y",
+            "special": true
+        },
+        { 
+            "letra": "Z",
+            "special": false
+        }
+    ]
+}
+
+
