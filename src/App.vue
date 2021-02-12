@@ -61,9 +61,11 @@ export default {
         }
 
   },
-  mounted() {
+  created() {
+    return new Promise((resolve) => {
       let voiceList = this.synth.getVoices()
-      this.voiceSpanish = voiceList.filter(item => item.name === "Jorge")
+        resolve(this.voiceSpanish = voiceList.filter(item => item.name === "Jorge"))
+    })
   }
 }
 </script>
