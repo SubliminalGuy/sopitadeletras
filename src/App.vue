@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <the-navbar></the-navbar>
     <modal
     @speakLetter="speakLetter" ></modal>
     <div class="letter-container">
@@ -17,6 +18,7 @@
 
 <script>
 import Modal from './components/Modal'
+import TheNavbar from './components/TheNavbar'
 import LetterShow from './components/LetterShow.vue'
 import {mapGetters} from "vuex";
 
@@ -34,7 +36,8 @@ export default {
   },
   components: {
     LetterShow,
-    Modal
+    Modal,
+    TheNavbar
   },
 
   computed: {
@@ -54,7 +57,7 @@ export default {
 
     showModal ({msg}) {
       let root = document.documentElement;
-      let yOffset = window.pageYOffset + 200;
+      let yOffset = window.pageYOffset + 100;
       root.style.setProperty('--y-scroll-offset', yOffset + "px");
       let letraInfo = this.$store.state.alphabet.filter(item => item.letra == msg)
       let letraInfoRojo = letraInfo[0].infotextRojo
