@@ -1,25 +1,43 @@
 <template>
-  <div class="letter-box">
-      <h1 class="main-letter" @click="speak">{{ msg }}</h1>
-      <p v-if="special" class="info-letter" @click="showModal">&#x2795;</p>
-      <p v-else class="info-letter"></p>
+  <div 
+    class="letter-box" :style="{ 'background-color': color }"
+    >
+      <h1 class="main-letter" :id="id"
+        @touchmove="collectElements"
+        @mouseover="collectElements"
+        > {{ msg }} </h1>
+      
   </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: 'LetterShow',
   props: {
     msg: String,
-    special: Boolean
+    id: Number,
+    color: String
+  },
+  computed: {
+    ...mapGetters([
+        'getLoggerStatus',
+        'getCollectedItems'
+    ])
   },
   methods: {
-    speak() {
-      this.$emit('speakLetter', {msg: this.msg})
-    },
-    showModal() {
-      this.$emit('showModal', {msg: this.msg })
-    }
+    collectElements(e) {
+      if(this.getLoggerStatus) {
+        console.log(e.target.innerText)
+        this.$store.dispatch('updateCollectedItems', e.target.innerText)
+        this.$store.dispatch('updateCollectedKeys', e.target.id)
+
+      }
+      else {
+        console.log("Stop Collecting")
+        }
+      }
   }
 }
 </script>

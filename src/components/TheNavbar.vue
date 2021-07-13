@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-      
-        <h2>Teresa Serrano Martín</h2>
-        <p>Profesora en condiciones</p>
+        <h2>La sopita de letras</h2>
       
   </header>
 </template>

@@ -1,0 +1,21 @@
+{
+    "palabras":
+    [
+        {   "solucion": ["R", "O", "J", "O"],
+            "color": "#EF4444" },
+        {   "solucion": ["A", "Z", "U", "L"],
+            "color": "#3B82F6" },
+        {   "solucion": ["A", "M", "A", "R", "I", "L", "L", "O"],
+            "color": "#FCD34D" },
+        {   "solucion": ["V", "E", "R", "D", "E"],
+            "color": "#34D399" },
+        {   "solucion": ["N", "E", "G", "R", "O"],
+            "color": "#6B7280" },
+        {   "solucion": ["B", "L", "A", "N", "C", "O"],
+            "color": "#E5E7EB" },
+        {   "solucion": ["N", "A", "R", "A", "N", "J", "A"],
+            "color": "#F59E0B" },
+        {   "solucion": ["R", "O", "S", "A"],
+            "color": "#F472B6" }
+    ]
+}
