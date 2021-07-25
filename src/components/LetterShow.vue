@@ -3,8 +3,6 @@
     class="letter-box" :style="{ 'background-color': color }"
     >
       <h1 class="main-letter" :id="id"
-        @touchmove="collectElements"
-        @mouseover="collectElements"
         > {{ msg }} </h1>
       
   </div>
@@ -25,19 +23,6 @@ export default {
         'getLoggerStatus',
         'getCollectedItems'
     ])
-  },
-  methods: {
-    collectElements(e) {
-      if(this.getLoggerStatus) {
-        console.log(e.target.innerText)
-        this.$store.dispatch('updateCollectedItems', e.target.innerText)
-        this.$store.dispatch('updateCollectedKeys', e.target.id)
-
-      }
-      else {
-        console.log("Stop Collecting")
-        }
-      }
   }
 }
 </script>

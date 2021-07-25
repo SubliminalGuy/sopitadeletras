@@ -5,8 +5,6 @@
     <div class="letter-container" id="selectable" 
       @mousedown="logElements" 
       @touchstart="logElements" 
-      @mouseup="stopLogElements"
-      @touchend="stopLogElements"
       >
       <LetterShow
       v-for="letter in getAlphabet" 
@@ -50,39 +48,44 @@ export default {
   },
   methods: {
     logElements(e) {
-      
-      this.$store.dispatch('startLogging')
-      this.$store.dispatch('emptyArray')
-      this.$store.dispatch('updateCollectedItems', e.target.innerText)
-      this.$store.dispatch('updateCollectedKeys', e.target.id)
-      
-      },
-    stopLogElements() {
-      this.$store.dispatch('stopLogging')
-      
-      let fundstueck = this.palabras.find(item => this.arrayEquals(item.solucion, this.getCollectedItems))
-      
-      if(fundstueck) {
-        this.$store.dispatch('updateFundstueckCount')
+      // User Clicks First Time
+      if (!this.getLoggerStatus) {
+        this.$store.dispatch('startLogging')
+        this.$store.dispatch('updateCollectedKeys', e.target.id)
+      }
+      // User Clicks Second Time
+      else if (this.getLoggerStatus) {
+        this.$store.dispatch('updateCollectedKeys', e.target.id)
+        this.$store.dispatch('stopLogging')
+        console.log("Collected Keys", this.getCollectedKeys)
+        let fundstueck = this.palabras.find(item => this.arrayEquals(item.solucion, this.getCollectedKeys))
+        if(fundstueck) {
+          this.$store.dispatch('updateFundstueckCount')
+          console.log("Fundstück Count", this.getFundstueckCount)
+          let alteredDataArray = this.getAlphabet.map(item => {
+            if (fundstueck.fields.includes(item.key.toString())) {
+              
+              return item = {...item, color: fundstueck.color}
+            }
+            else {
+              return item
+            }
+          })
         
-        let alteredDataArray = this.getAlphabet.map(item => {
-          if (this.getCollectedKeys.includes(item.key.toString())) {
-            return item = {...item, color: fundstueck.color}
-          }
-          else {
-            return item
-          }
-        })
-        this.$store.dispatch('updateAlphabet', alteredDataArray)
+        // Check if user found all words
+          this.$store.dispatch('updateAlphabet', alteredDataArray)
           if (this.getFundstueckCount == 8) {
             console.log("Strike!")
             this.$store.dispatch('showModal')
-          }
+          } 
         }
-      else {
-        console.log("Nicht gefunden")
+        else {
+            console.log("Nicht gefunden!")
+          }
+        this.$store.dispatch('emptyArray')
+        console.log("Is Empty!", this.getCollectedKeys)
       }
-      },
+    },     
     arrayEquals(a, b) {
       return Array.isArray(a) &&
       Array.isArray(b) &&
