@@ -1,6 +1,9 @@
 <template>
   <div 
     class="letter-box" :style="{ 'background-color': color }"
+    @mousedown="logElements" 
+    @touchstart="logElements"
+    :id="id"
     >
       <h1 class="main-letter" :id="id"
         > {{ msg }} </h1>
@@ -13,6 +16,11 @@ import {mapGetters} from "vuex";
 
 export default {
   name: 'LetterShow',
+  data () {
+    return {
+      palabras: this.$store.state.palabras
+    }
+  },
   props: {
     msg: String,
     id: Number,
@@ -21,8 +29,58 @@ export default {
   computed: {
     ...mapGetters([
         'getLoggerStatus',
-        'getCollectedItems'
+        'getCollectedKeys',
+        'getFundstueckCount',
+        'getAlphabet'
     ])
+  },
+  methods: {
+    logElements(e) {
+      // User Clicks First Time
+      if (!this.getLoggerStatus) {
+        this.$store.dispatch('startLogging')
+        this.$store.dispatch('updateCollectedKeys', e.target.id)
+      }
+      // User Clicks Second Time
+      else if (this.getLoggerStatus) {
+        this.$store.dispatch('updateCollectedKeys', e.target.id)
+        this.$store.dispatch('stopLogging')
+        console.log("Collected Keys", this.getCollectedKeys)
+        let fundstueck = this.palabras.find(item => this.arrayEquals(item.solucion, this.getCollectedKeys))
+        if(fundstueck) {
+          this.$store.dispatch('updateFundstueckCount')
+          console.log("Fundstück Count", this.getFundstueckCount)
+          let alteredDataArray = this.getAlphabet.map(item => {
+            if (fundstueck.fields.includes(item.key.toString())) {
+              
+              return item = {...item, color: fundstueck.color}
+            }
+            else {
+              return item
+            }
+          })
+        
+        // Check if user found all words
+          this.$store.dispatch('updateAlphabet', alteredDataArray)
+          if (this.getFundstueckCount == 8) {
+            //console.log("Strike!")
+            this.$store.dispatch('showModal')
+          } 
+        }/*
+        else {
+            console.log("Nicht gefunden!")
+          }*/
+        this.$store.dispatch('emptyArray')
+        console.log("Is Empty!", this.getCollectedKeys)
+      }
+    },     
+    arrayEquals(a, b) {
+      return Array.isArray(a) &&
+      Array.isArray(b) &&
+      a.length === b.length &&
+      a.every((val, index) => val === b[index]);
+    }
+
   }
 }
 </script>

@@ -31,12 +31,12 @@ html, body {
 
 h1 {
     font-family: space_monoregular;
-    font-size: 2.2rem;
+    font-size: 1.2rem;
 }
 
 h2 {
 	font-family: familiar_probold;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
 	color: #E5E7EB
 }
 
@@ -49,15 +49,15 @@ h2 {
 
 .letter-container {
     margin: 30px auto;
-    width: 672px;
-	height: 672px;
+    width: 360px;
+	height: 360px;
     display: grid;
-    grid-template-columns: repeat(12, 56px);
-	grid-template-rows: repeat(12, 56px)
+    grid-template-columns: repeat(12, 30px);
+	grid-template-rows: repeat(12, 30px)
 }
 
 .letter-box {
-    border: 2px black solid;
+    border: 1px black solid;
     padding: 5px;
     margin: 0px;
     display: flex;
@@ -151,3 +151,48 @@ h2 {
 	justify-content: space-around;
 }
 
+@media (min-width: 600px) { 
+
+	.letter-container {
+		width: 600px;
+		height: 600px;
+		grid-template-columns: repeat(12, 50px);
+		grid-template-rows: repeat(12, 50px)
+	}
+
+	h1 {
+		font-size: 1.8rem;
+	}
+	
+	h2 {
+		font-size: 2rem;
+	}
+
+	.letter-box {
+		border: 2px black solid;
+		
+	}
+}
+
+@media (min-width: 1000px) { 
+
+	.letter-container {
+		width: 672px;
+		height: 672px;
+		grid-template-columns: repeat(12, 56px);
+		grid-template-rows: repeat(12, 56px)
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+	
+	h2 {
+		font-size: 2.2rem;
+	}
+
+	.letter-box {
+		border: 2px black solid;
+		
+	}
+}
