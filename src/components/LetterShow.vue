@@ -2,7 +2,6 @@
   <div 
     class="letter-box" :style="{ 'background-color': color }"
     @mousedown="logElements" 
-    @touchstart="logElements"
     :id="id"
     >
       <h1 class="main-letter" :id="id"
@@ -79,6 +78,9 @@ export default {
       Array.isArray(b) &&
       a.length === b.length &&
       a.every((val, index) => val === b[index]);
+    },
+    logTouch(e) {
+      console.log(e.target.id)
     }
 
   }
