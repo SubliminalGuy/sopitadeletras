@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-        <h2>La sopita de letras</h2>
+        <h2>Sopa de letras: Los colores</h2>
       
   </header>
 </template>

@@ -1,6 +1,19 @@
 <template>
   <div id="app">
     <the-navbar></the-navbar>
+    <div class="searchcolors">
+      <p class="headline">Busca estos colores:</p>
+      <p>Amarillo</p>
+      <p>Azul</p>
+      <p>Blanco</p>
+      <p>Naranja</p>
+      <p>Negro</p>
+      <p>Rojo</p>
+      <p>Rosa</p>
+      
+      <p>Verde</p>
+      
+    </div>
     <modal></modal>
     <div class="letter-container" id="selectable" 
       >
