@@ -44,11 +44,11 @@ export default {
       else if (this.getLoggerStatus) {
         this.$store.dispatch('updateCollectedKeys', e.target.id)
         this.$store.dispatch('stopLogging')
-        console.log("Collected Keys", this.getCollectedKeys)
+        //console.log("Collected Keys", this.getCollectedKeys)
         let fundstueck = this.palabras.find(item => this.arrayEquals(item.solucion, this.getCollectedKeys))
         if(fundstueck) {
           this.$store.dispatch('updateFundstueckCount')
-          console.log("Fundstück Count", this.getFundstueckCount)
+            //console.log("Fundstück Count", this.getFundstueckCount)
           let alteredDataArray = this.getAlphabet.map(item => {
             if (fundstueck.fields.includes(item.key.toString())) {
               
@@ -70,7 +70,7 @@ export default {
             console.log("Nicht gefunden!")
           }*/
         this.$store.dispatch('emptyArray')
-        console.log("Is Empty!", this.getCollectedKeys)
+        //console.log("Is Empty!", this.getCollectedKeys)
       }
     },     
     arrayEquals(a, b) {

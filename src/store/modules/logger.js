@@ -34,6 +34,9 @@ export default {
         },
         updateFundstueckCount: function (state) {
             state.fundstueckCount = state.fundstueckCount + 1
+        },
+        deleteFundstueckCount: function (state) {
+            state.fundstueckCount = 0
         }
     },
     
@@ -52,6 +55,9 @@ export default {
         },
         updateFundstueckCount: function(context) {
             context.commit('updateFundstueckCount')
+        },
+        deleteFundstueckCount: function(context) {
+            context.commit('deleteFundstueckCount')
         }
     }
 }

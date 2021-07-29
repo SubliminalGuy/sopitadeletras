@@ -14,17 +14,19 @@
       <p>Verde</p>
       
     </div>
-    <modal></modal>
-    <div class="letter-container" id="selectable" 
-      >
-      <LetterShow
-      v-for="letter in getAlphabet" 
-      :key="letter.key" 
-      :id="letter.key"
-      :msg="letter.letra"
-      :color="letter.color"
-      
-      ></LetterShow>
+    <div>
+      <modal></modal>
+      <div class="letter-container" id="selectable" >
+        
+          <LetterShow
+          v-for="letter in getAlphabet" 
+          :key="letter.key" 
+          :id="letter.key"
+          :msg="letter.letra"
+          :color="letter.color"
+          
+          ></LetterShow>
+        </div>
       </div>
       
   </div>
