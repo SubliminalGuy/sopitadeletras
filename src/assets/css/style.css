@@ -177,7 +177,7 @@ h2 {
 }
 
 
-@media (min-width: 600px) { 
+@media handheld, onlyscreen and (min-width: 600px) { 
 
 	.letter-container {
 		width: 600px;
