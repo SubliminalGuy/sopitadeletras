@@ -2,7 +2,7 @@
   <div id="app">
     <the-navbar></the-navbar>
     <div class="searchcolors">
-      <p class="headline">Busca estos colores:</p>
+      <p class="headline">Sucht die folgenden Farben in Spanisch:</p>
       <p>Amarillo</p>
       <p>Azul</p>
       <p>Blanco</p>
@@ -12,6 +12,9 @@
       <p>Rosa</p>
       
       <p>Verde</p>
+      <p class="explain">Markiert die gesuchten Wörter indem ihr erst den ersten Buchstaben des gesuchten Wortes clickt und danach
+      den Letzten. </p>
+      <p class="explain">Wenn ihr erfolgreich wart, ändert sich die Farbe des Wortes.</p>
       
     </div>
     <div>
