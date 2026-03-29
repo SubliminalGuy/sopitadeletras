@@ -3,19 +3,18 @@
     <the-navbar></the-navbar>
     <div class="searchcolors">
       <p class="headline">Sucht die folgenden Farben in Spanisch:</p>
-      <p>Amarillo</p>
-      <p>Azul</p>
-      <p>Blanco</p>
-      <p>Naranja</p>
-      <p>Negro</p>
-      <p>Rojo</p>
-      <p>Rosa</p>
-      
-      <p>Verde</p>
-      <p class="explain">Markiert die gesuchten Wörter indem ihr erst den ersten Buchstaben des gesuchten Wortes clickt und danach
-      den Letzten. </p>
+      <div class="word-chips">
+        <span class="word-chip">Amarillo</span>
+        <span class="word-chip">Azul</span>
+        <span class="word-chip">Blanco</span>
+        <span class="word-chip">Naranja</span>
+        <span class="word-chip">Negro</span>
+        <span class="word-chip">Rojo</span>
+        <span class="word-chip">Rosa</span>
+        <span class="word-chip">Verde</span>
+      </div>
+      <p class="explain">Markiert die gesuchten Wörter indem ihr erst den ersten Buchstaben des gesuchten Wortes clickt und danach den Letzten.</p>
       <p class="explain">Wenn ihr erfolgreich wart, ändert sich die Farbe des Wortes.</p>
-      
     </div>
     <div>
       <modal></modal>

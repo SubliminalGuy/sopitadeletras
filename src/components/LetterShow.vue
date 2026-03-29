@@ -1,7 +1,8 @@
 <template>
-  <div 
+  <div
     class="letter-box" :style="{ 'background-color': color }"
-    @mousedown="logElements" 
+    @mousedown="logElements"
+    @touchstart.prevent="logElements"
     :id="id"
     >
       <h1 class="main-letter" :id="id"
