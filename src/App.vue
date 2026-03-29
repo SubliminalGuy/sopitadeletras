@@ -2,7 +2,7 @@
   <div id="app">
     <the-navbar @open-teacher="showTeacherPanel = true"></the-navbar>
     <div class="searchcolors">
-      <p class="headline">{{ isTeacherMode ? 'Find the following words:' : 'Sucht die folgenden Farben in Spanisch:' }}</p>
+      <p class="headline">{{ isTeacherMode ? 'Buscad las siguientes palabras:' : 'Buscad los siguientes colores en español:' }}</p>
       <div class="word-chips">
         <template v-if="isTeacherMode">
           <span v-for="word in customWords" :key="word" class="word-chip">{{ word }}</span>
@@ -18,8 +18,8 @@
           <span class="word-chip">Verde</span>
         </template>
       </div>
-      <p class="explain">Markiert die gesuchten Wörter indem ihr erst den ersten Buchstaben des gesuchten Wortes clickt und danach den Letzten.</p>
-      <p class="explain">Wenn ihr erfolgreich wart, ändert sich die Farbe des Wortes.</p>
+      <p class="explain">Marcad las palabras haciendo clic primero en la primera letra y luego en la última.</p>
+      <p class="explain">Si lo habéis encontrado, el color de la palabra cambiará.</p>
     </div>
     <div>
       <modal></modal>
