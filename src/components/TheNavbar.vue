@@ -15,16 +15,18 @@ export default {
 <style scoped>
 .teacher-nav-btn {
   margin-left: auto;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
-  color: #E5E7EB;
+  background: rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  color: #c4b5fd;
   font-size: 1rem;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
   cursor: pointer;
   line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
 }
 .teacher-nav-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(124, 58, 237, 0.4);
+  border-color: #a78bfa;
 }
 </style>
