@@ -17,9 +17,7 @@ import {mapGetters} from "vuex";
 export default {
   name: 'LetterShow',
   data () {
-    return {
-      palabras: this.$store.state.palabras
-    }
+    return {}
   },
   props: {
     msg: String,
@@ -32,6 +30,7 @@ export default {
         'getCollectedKeys',
         'getFundstueckCount',
         'getAlphabet',
+        'getPalabras',
         'getPalabrasCount'
     ])
   },
@@ -47,7 +46,7 @@ export default {
         this.$store.dispatch('updateCollectedKeys', e.target.id)
         this.$store.dispatch('stopLogging')
         //console.log("Collected Keys", this.getCollectedKeys)
-        let fundstueck = this.palabras.find(item => this.arrayEquals(item.solucion, this.getCollectedKeys))
+        let fundstueck = this.getPalabras.find(item => this.arrayEquals(item.solucion, this.getCollectedKeys))
         if(fundstueck) {
           this.$store.dispatch('updateFundstueckCount')
             //console.log("Fundstück Count", this.getFundstueckCount)
