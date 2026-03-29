@@ -9,9 +9,23 @@ import solution from "@/utils/solution.json"
 
 Vue.use(Vuex);
 
-const COLORS = ['#EF4444', '#3B82F6', '#FCD34D', '#34D399', '#6B7280', '#F97316', '#A78BFA'];
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const SIZE = 12;
+
+// Generates visually distinct, vibrant HSL colors spread evenly around the hue wheel
+function randomVibrantColors(count) {
+    const startHue = Math.floor(Math.random() * 360);
+    const step = Math.floor(360 / count);
+    return Array.from({ length: count }, (_, i) => {
+        const hue = (startHue + i * step) % 360;
+        return `hsl(${hue}, 85%, 58%)`;
+    });
+}
+
+function applyRandomColors(palabras) {
+    const colors = randomVibrantColors(palabras.length);
+    return palabras.map((p, i) => ({ ...p, color: colors[i] }));
+}
 
 function generateWordSoup(words) {
     const grid = Array(SIZE * SIZE).fill(null);
@@ -61,7 +75,7 @@ function generateWordSoup(words) {
                 solutions.push({
                     solucion: [fields[0].toString(), fields[fields.length - 1].toString()],
                     fields: fields.map(k => k.toString()),
-                    color: COLORS[wi % COLORS.length]
+                    color: null  // assigned after all words are placed
                 });
                 placed = true;
             }
@@ -77,13 +91,13 @@ function generateWordSoup(words) {
         key
     }));
 
-    return { sopita, palabras: solutions };
+    return { sopita, palabras: applyRandomColors(solutions) };
 }
 
 const store = new Vuex.Store({
     state: {
         alphabet: data.sopita,
-        palabras: solution.palabras
+        palabras: applyRandomColors(solution.palabras)
     },
     getters: {
         getAlphabet: state => state.alphabet,
@@ -99,7 +113,7 @@ const store = new Vuex.Store({
         },
         resetToDefault(state) {
             state.alphabet = data.sopita;
-            state.palabras = solution.palabras;
+            state.palabras = applyRandomColors(solution.palabras);
         }
     },
     actions: {
