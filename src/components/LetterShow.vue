@@ -31,7 +31,8 @@ export default {
         'getLoggerStatus',
         'getCollectedKeys',
         'getFundstueckCount',
-        'getAlphabet'
+        'getAlphabet',
+        'getPalabrasCount'
     ])
   },
   methods: {
@@ -62,7 +63,7 @@ export default {
         
         // Check if user found all words
           this.$store.dispatch('updateAlphabet', alteredDataArray)
-          if (this.getFundstueckCount == 8) {
+          if (this.getFundstueckCount == this.getPalabrasCount) {
             //console.log("Strike!")
             this.$store.dispatch('showModal')
           } 

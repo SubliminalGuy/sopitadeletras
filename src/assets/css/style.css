@@ -213,6 +213,141 @@ h2 {
     margin-right: 5px;
 }
 
+/* TEACHER PANEL */
+.teacher-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.teacher-window {
+    position: relative;
+    background: white;
+    width: min(360px, 92vw);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.teacher-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+    padding: 2px 6px;
+}
+
+.teacher-close:hover {
+    color: #111;
+}
+
+.teacher-title {
+    font-family: familiar_probold;
+    font-size: 1.2rem;
+    margin: 0 0 1.25rem;
+    color: #111;
+    text-align: center;
+}
+
+.teacher-hint {
+    font-family: space_monoregular;
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.teacher-field {
+    margin-bottom: 0.75rem;
+    text-align: left;
+}
+
+.teacher-label {
+    display: block;
+    font-family: space_monoregular;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.teacher-optional {
+    text-transform: none;
+    letter-spacing: 0;
+    color: #999;
+}
+
+.teacher-input {
+    font-family: space_monoregular;
+    font-size: 0.95rem;
+    width: 100%;
+    padding: 7px 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.teacher-input:focus {
+    border-color: #111;
+}
+
+.teacher-error {
+    font-family: space_monoregular;
+    font-size: 0.8rem;
+    color: #EF4444;
+    margin: 0 0 0.75rem;
+    text-align: center;
+}
+
+.teacher-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.teacher-btn {
+    font-family: familiar_probold;
+    background: #111;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    flex: 1;
+}
+
+.teacher-btn:active {
+    background: #444;
+}
+
+.teacher-btn-secondary {
+    background: white;
+    color: #111;
+    border: 2px solid #111;
+}
+
+.teacher-btn-secondary:active {
+    background: #f0f0f0;
+}
+
 /* TABLET */
 @media (min-width: 600px) {
     :root {
