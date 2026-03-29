@@ -87,6 +87,7 @@ const store = new Vuex.Store({
     },
     getters: {
         getAlphabet: state => state.alphabet,
+        getPalabras: state => state.palabras,
         getPalabrasCount: state => state.palabras.length
     },
     mutations: {
